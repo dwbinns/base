@@ -1,0 +1,9 @@
+{
+  "name": "@dwbinns/base",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    "./64": "./base64.js",
+    "./64url": "./base64url.js"
+  }
+}
