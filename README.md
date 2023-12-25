@@ -1,6 +1,7 @@
 # Base64 encoding and decoding
-
-Encode and decode base64 and base64url. Base64 encodes 6 bits of binary data per character.
+Base64 encodes binary data as text.
+This library encodes and decodes base64 and base64url. 
+Base64 encodes 6 bits of binary data per character.
 
 ```js
 import { encode, decode } from "@dwbinns/base/64";

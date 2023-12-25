@@ -5,5 +5,9 @@
   "exports": {
     "./64": "./base64.js",
     "./64url": "./base64url.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dwbinns/base.git"
   }
 }
