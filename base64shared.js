@@ -20,7 +20,7 @@ export function encode64(bytes, alphabet, paddingChar) {
   return output.map((v) => alphabet[v & 0x3f]).join('') + padding;
 }
 
-
+const unprintable = /[\p{Z}\p{C}\p{M}]/u;
 
 export function decode64(string, alphabet, paddingChar) {
   let bits = 0;
@@ -32,7 +32,10 @@ export function decode64(string, alphabet, paddingChar) {
       let char = string[index++];
       if (char != paddingChar) {
         let found = alphabet.indexOf(char);
-        if (found < 0) throw new Error(`Character not known: ${char}`);
+        if (found < 0) {
+          if (char.match(unprintable)) throw new Error(`Character not known: (${char.charCodeAt(0)})`);
+          else throw new Error(`Character not known: "${char}"`);
+        }
         accumulator = (accumulator << 6) | found;
         bits += 6;
       }
